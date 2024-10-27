@@ -1,5 +1,5 @@
+import secrets
 import string
-import random
 
 
 valid_symbols = string.ascii_letters + string.digits + '!@#$%^&*()'
@@ -8,7 +8,7 @@ ERROR_MESSAGE = ("Значение длины пароля должно быть
 
 
 def generate_password(length, symbols):
-    password = ''.join(random.choice(symbols) for _ in range(length))
+    password = ''.join(secrets.choice(symbols) for _ in range(length))
     return password
 
 
