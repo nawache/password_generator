@@ -9,8 +9,7 @@ POSITIVE_ANSWERS = ("д", "да", "ага", "y", "yes", "yeah")
 
 
 def generate_password(length, symbols):
-    password = ''.join(secrets.choice(symbols) for _ in range(length))
-    return password
+    return ''.join(secrets.choice(symbols) for _ in range(length))
 
 
 def get_password_length():
@@ -25,20 +24,20 @@ def get_password_length():
             print(ERROR_MESSAGE)
 
 
-def main():
-    length = get_password_length()
-    password = generate_password(length, VALID_SYMBOLS)
-
-    print("\nСгенерированный пароль:", password)
-    try_again()
-
-
 def try_again():
     response = input("\nХотите сгенерировать ещё один пароль? (y/n)\n>: ")
     if response.lower() in POSITIVE_ANSWERS:
         main()
     else:
         print("\nДо свидания!")
+
+
+def main():
+    length = get_password_length()
+    password = generate_password(length, VALID_SYMBOLS)
+
+    print("\nСгенерированный пароль:", password)
+    try_again()
 
 
 if __name__ == "__main__":
